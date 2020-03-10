@@ -18,6 +18,10 @@ variable "gcp_region" {
   description = "The GCP Region"
 }
 
+variable "gcp_zone" {
+  description = "The GCP Zone"
+}
+
 provider "google" {
   version = "~> 3.11"
   credentials = file(var.gcp_credentials)
