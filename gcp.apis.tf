@@ -33,8 +33,15 @@ resource "google_project_service" "containeranalysis-api" {
   service            = "containeranalysis.googleapis.com"
   disable_on_destroy = false
 }
+
 resource "google_project_service" "cloudkms-api" {
   project            = var.gcp_project
   service            = "cloudkms.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "clouddns-api" {
+  project            = var.gcp_project
+  service            = "dns.googleapis.com"
   disable_on_destroy = false
 }
