@@ -26,6 +26,10 @@ resource "google_project_iam_member" "vault-sa-cloudkms-crypto-binding" {
 resource "google_storage_bucket" "vault-bucket" {
   name     = "${google_container_cluster.dev_cluster.name}-vault"
   location = "US"
+  # don't destroy buckets containing vault secrets if re-creating the cluster
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "google_kms_key_ring" "vault-keyring" {
