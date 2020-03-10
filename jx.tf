@@ -1,3 +1,8 @@
+resource "google_storage_bucket" "lts-bucket" {
+  name     = "${google_container_cluster.dev_cluster.name}-lts"
+  location = "US"
+}
+
 resource "kubernetes_namespace" "jx-namespace" {
   metadata {
     name = "jx"
