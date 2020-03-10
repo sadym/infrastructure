@@ -4,7 +4,13 @@ resource "google_container_cluster" "dev_cluster" {
     location                 = var.gcp_zone
     initial_node_count       = 3
     remove_default_node_pool = true
-    min_master_version       = "1.14"
+    min_master_version       = "1.15"
+
+    maintenance_policy {
+        daily_maintenance_window {
+            start_time = "03:00"
+        }
+    }
 
     lifecycle {
         ignore_changes = [node_pool]
