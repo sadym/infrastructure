@@ -69,7 +69,7 @@ resource "kubernetes_secret" "velero-secret" {
 
   metadata {
     namespace = "velero"
-    name      = "cloud-credentials"
+    name      = "velero-secret"
     labels = {
       "component" = "velero"
     }
