@@ -7,10 +7,10 @@ resource "kubernetes_namespace" "jx-namespace" {
   depends_on = [google_container_node_pool.primary_preemptible_nodes]
   metadata {
     name = "jx"
-    labels = {
-      "env"  = "dev"
-      "team" = "jx"
-    }
+  }
+
+  lifecycle {
+    ignore_changes = [metadata[0].labels, metadata[0].annotations]
   }
 }
 

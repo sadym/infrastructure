@@ -58,6 +58,10 @@ resource "kubernetes_namespace" "velero" {
       "component" = "velero"
     }
   }
+
+  lifecycle {
+    ignore_changes = [metadata[0].labels, metadata[0].annotations]
+  }
 }
 
 resource "kubernetes_secret" "velero-secret" {

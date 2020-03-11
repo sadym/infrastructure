@@ -33,6 +33,7 @@ resource "google_storage_bucket" "vault-bucket" {
 }
 
 resource "google_kms_key_ring" "vault-keyring" {
+  depends_on = [google_project_service.cloudkms-api]
   name     = "${google_container_cluster.dev_cluster.name}-keyring"
   location = var.gcp_region
 }
