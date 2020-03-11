@@ -1,5 +1,5 @@
 resource "google_service_account" "velero-sa" {
-  account_id   = "velero-dev"
+  account_id   = "${google_container_cluster.dev_cluster.name}-velero"
   display_name = "velero service account for ${google_container_cluster.dev_cluster.name}"
 }
 
@@ -28,10 +28,6 @@ resource "google_storage_bucket_iam_binding" "velero_bucket_iam" {
   members = [
     "serviceAccount:${google_service_account.velero-sa.email}"
   ]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "google_project_iam_custom_role" "velero-role" {

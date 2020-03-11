@@ -1,5 +1,5 @@
 resource "google_service_account" "kaniko-sa" {
-  account_id   = "kaniko-dev"
+  account_id   = "${google_container_cluster.dev_cluster.name}-ko"
   display_name = "Kaniko service account for ${google_container_cluster.dev_cluster.name}"
 }
 

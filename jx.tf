@@ -4,16 +4,18 @@ resource "google_storage_bucket" "lts-bucket" {
 }
 
 resource "kubernetes_namespace" "jx-namespace" {
+  depends_on = [google_container_node_pool.primary_preemptible_nodes]
   metadata {
     name = "jx"
     labels = {
-        "env"  = "dev"
-        "team" = "jx"
+      "env"  = "dev"
+      "team" = "jx"
     }
   }
 }
 
 resource "kubernetes_secret" "kaniko-secret" {
+  depends_on = [kubernetes_namespace.jx-namespace]
   metadata {
     name      = "kaniko-secret"
     namespace = "jx"
@@ -25,6 +27,7 @@ resource "kubernetes_secret" "kaniko-secret" {
 }
 
 resource "kubernetes_secret" "vault-secret" {
+  depends_on = [kubernetes_namespace.jx-namespace]
   metadata {
     name      = "vault-secret"
     namespace = "jx"
@@ -35,6 +38,7 @@ resource "kubernetes_secret" "vault-secret" {
 }
 
 resource "kubernetes_secret" "external-dns-gcp-sa" {
+  depends_on = [kubernetes_namespace.jx-namespace]
   metadata {
     name      = "external-dns-gcp-sa"
     namespace = "jx"

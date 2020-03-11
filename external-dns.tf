@@ -18,7 +18,8 @@ resource "google_project_iam_member" "external-dns-gcp-sa-dns-admin-binding" {
 }
 
 resource "google_dns_managed_zone" "dns-managed-zone" {
-  name        = "dns-managed-zone"
+  depends_on = [google_project_service.clouddns-api]
+  name        = "${google_container_cluster.dev_cluster.name}-dns-mz"
   dns_name    = "${var.cluster_dns}."
   description = "Managed DNS zone"
 }

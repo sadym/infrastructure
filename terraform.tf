@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 0.12.0"
   backend "gcs" {
-    bucket      = "cloud-native-entrepreneur-tf-state"
+    bucket      = "cldntventr-tf-state"
     prefix      = "dev"
   }
 }

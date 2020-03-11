@@ -15,6 +15,18 @@ resource "google_container_cluster" "dev_cluster" {
     lifecycle {
         ignore_changes = [node_pool]
     }
+
+    depends_on = [
+        google_project_service.cloudresourcemanager-api,
+        google_project_service.kubernetes-api,
+        google_project_service.compute-api,
+        google_project_service.iam-api,
+        google_project_service.cloudbuild-api,
+        google_project_service.containerregistry-api,
+        google_project_service.containeranalysis-api,
+        google_project_service.cloudkms-api,
+        google_project_service.clouddns-api
+    ]
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
