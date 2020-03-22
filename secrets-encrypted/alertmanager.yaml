@@ -1,0 +1,25 @@
+global:
+    resolve_timeout: ENC[AES256_GCM,data:4xA=,iv:bUHpQMdZ6vSyoI79ocHmbaUhSN30Guvd3rlcmacA2zc=,tag:7k7KqBGoieKZJp2FZNk9vw==,type:str]
+route:
+    group_by:
+    - ENC[AES256_GCM,data:3mIb,iv:mgNATm/iKIYocATbTKaNaL55M9ib66qp028zLFHJMIs=,tag:4fxAF4ZpXG477XJ/cs7VMw==,type:str]
+    group_wait: ENC[AES256_GCM,data:6blJ,iv:A+O5kMnYSriTRxpsllB9Pp46GKDZH8CBg9mJK/6tsJA=,tag:vn7DCbRvg791GSK1iHHvJQ==,type:str]
+    group_interval: ENC[AES256_GCM,data:Nvg=,iv:RRGGSG2nLxxI85kyCM7ZQoUEzUuM/TgNXpHJ4U+iwZQ=,tag:1KGXvdn1XizSwJp9Hig/Dw==,type:str]
+    repeat_interval: ENC[AES256_GCM,data:8g/V,iv:P0V96WIBeDMO8B5bPDmLmig7xqUKHQCgmPao2QgsOAE=,tag:eqeoYc3YPk3MYDQuzdVo6A==,type:str]
+    receiver: ENC[AES256_GCM,data:cR3Dw2xCuQ==,iv:KOhTCNI660uQdHCu1WGSYCMi58JFF/c1ZtoRtjN6SbQ=,tag:BTQGM1cqUVxbG8KXahW0pA==,type:str]
+receivers:
+-   name: ENC[AES256_GCM,data:1UX3Wnx0+A==,iv:BQo+qsexgvkgLA2oVVzV+eoOjaR1Dk0agmhsqu9Rmm4=,tag:acJboq9y4VwCVeu8TmsGlw==,type:str]
+    webhook_configs:
+    -   url: ENC[AES256_GCM,data:ga/82rJIgn7DEm+d+pW5JDgndtRaUJCTmdfkJw==,iv:AlNvjkc1oEU6Ub0igH3IQ2Ny43VdqUT/o1II9Tsmw7o=,tag:g92aCxwasYBe81/Y6iFIRg==,type:str]
+sops:
+    kms: []
+    gcp_kms:
+    -   resource_id: projects/cldntventr/locations/global/keyRings/sops/cryptoKeys/sops-key
+        created_at: '2020-03-18T15:30:44Z'
+        enc: CiQATC0VFuA26gXZRTlO1NyvfNw0W6Odl6p5PePcx5TH95FpK/kSSQANilv0DHx9pV2KE5JwqTd5swQ2+tigXADB2EcTo12J/yYBkfppj6hqR94u5epeyoCQ1890PNJy/e/sux80CW58CdYpIE2LL0s=
+    azure_kv: []
+    lastmodified: '2020-03-18T15:30:44Z'
+    mac: ENC[AES256_GCM,data:Xo2/mzNGU8Xb7P+sKE/1rdaGaUPuMNFXMwvs7Ebg6rQnwj5ui77PIsHi2z8P2YkhDQCxZWBWrL4QZNqT6ZECsoHMqnWP3QS9ZE+nqyhcNyVTg3Fc2WcUuZAA4AOS7OYI4I1RGW31MgAsBaJMM/xjAjc/isXRvThN3//yXWM759w=,iv:VZS9/XhSvTMagblYpfwyGGrTJif6iPznooTqhQ3pkpc=,tag:nN/ot0Lx62rt8lDkq8AuLw==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.5.0
