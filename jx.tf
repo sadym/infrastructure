@@ -47,3 +47,15 @@ resource "kubernetes_secret" "external-dns-gcp-sa" {
     "credentials.json" = base64decode(google_service_account_key.external-dns-gcp-sa-key.private_key)
   }
 }
+
+resource "kubernetes_secret" "npmrc" {
+  depends_on = [kubernetes_namespace.jx-namespace]
+  metadata {
+    name = "npmrc"
+    namespace = kubernetes_namespace.jx-namespace.metadata[0].name
+  }
+
+  data = {
+    ".npmrc" = file("./secrets/.npmrc")
+  }
+}

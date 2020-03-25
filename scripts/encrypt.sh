@@ -1,13 +1,16 @@
 #!/bin/bash
-FILES=./secrets/*
+FILES=./secret
 
-mkdir -p secrets
-mkdir -p secrets-encrypted
+mkdir -p secret
+mkdir -p secret-encrypted
 
-for f in $FILES
+for f in $(find $FILES -type f)
 do
-  dest=$(echo $f |  sed -e 's/secrets/secrets-encrypted/g')
+  dest=$(echo $f |  sed -e 's/secret/secret-encrypted/g')
   echo "Encrypting $f to $dest"
-  # take action on each file. $f store current file name
+
+  dir=$(dirname -- "$dest")
+  mkdir -p $dir  
+
   sops --encrypt $f > $dest
 done
