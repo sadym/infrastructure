@@ -56,6 +56,6 @@ resource "kubernetes_secret" "npmrc" {
   }
 
   data = {
-    ".npmrc" = file("./secrets/.npmrc")
+    ".npmrc" = file("./secret/.npmrc")
   }
 }
