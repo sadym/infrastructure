@@ -8,6 +8,17 @@ resource "kubernetes_storage_class" "ssd-storageclass" {
   }
 }
 
+resource "kubernetes_storage_class" "ssd-retain-storageclass" {
+  metadata {
+    name = "ssd-retain"
+  }
+  storage_provisioner = "kubernetes.io/gce-pd"
+  parameters = {
+    type = "pd-ssd"
+  }
+  reclaim_policy      = "Retain"
+}
+
 # resource "kubernetes_storage_class" "regional-standard-storageclass" {
 #   metadata {
 #     name = "regional-standard"
