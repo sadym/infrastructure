@@ -4,7 +4,7 @@ resource "google_storage_bucket" "lts-bucket" {
 }
 
 resource "kubernetes_namespace" "jx-namespace" {
-  depends_on = [google_container_node_pool.primary_preemptible_nodes]
+  depends_on = [google_container_node_pool.primary_preemptible_nodes_n1_standard_4]
   metadata {
     name = "jx"
   }
