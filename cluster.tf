@@ -5,6 +5,8 @@ resource "google_container_cluster" "dev_cluster" {
     initial_node_count       = 3
     remove_default_node_pool = true
     min_master_version       = "1.15"
+    logging_service          = "none"
+    monitoring_service       = "none"
 
     maintenance_policy {
         daily_maintenance_window {
