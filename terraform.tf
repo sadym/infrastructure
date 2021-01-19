@@ -23,7 +23,7 @@ variable "gcp_zone" {
 }
 
 provider "google" {
-  version = "~> 3.23.0"
+  version = "~> 3.53.0"
   credentials = file(var.gcp_credentials)
   project     = var.gcp_project
   region      = var.gcp_region
